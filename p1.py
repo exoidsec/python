@@ -1,123 +1,69 @@
-#Write a Program in Python using Numpy to demonstrate the various arithmetic
-# operations using Scalars, vectors, matrices and tensors.
 import numpy as np
+print("SCALAR")
+s1 = np.array(3)
+s2 = np.array(22)
+s_sum = s1+s2
+s_diff = s1-s2
+s_prod = s1*s2
+s_div = s1/s2
+print("s1 = ", s1)
+print("s2 = ", s2)
+print("s1+s2 = ", s_sum)
+print("s1-s2 = ", s_diff)
+print("s1*s2 = ", s_prod)
+print("s1/s2 = ", s_div)
+print("")
 
-print("===== SCALAR OPERATIONS =====")
+print("VECTORS")
+v1 = np.array([50, 60, 70, 80])
+v2 = np.array([5, 6, 7, 8])
+v_sum = v1+v2
+v_diff = v1-v2
+v_prod = v1*v2
+v_div = v1/v2
+dp = v1 @ v2.T
+print("v1 = ", v1)
+print("v2 = ", v2)
+print("v1+v2 = ", v_sum)
+print("v1-v2 = ", v_diff)
+print("v1*v2 = ", v_prod)
+print("v1/v2 = ", v_div)
+print("v1.v2 = ", dp)
+rd = np.random.default_rng()
+r = rd.random(5)
+print(r)
+r = (r*1000)//10
+print(r)
+cryp = np.random.randint(0,2,256)
+print(cryp)
+print("")
 
-a = 10
-b = 5
+print("MATRICES")
+m1 = np.array([[1,2,3],[4,5,6],[7,8,9]])
+m2 = np.array([1]) #for broadcasting
+m_sum = m1+m2
+m_diff = m1-m2
+m_prod = m1*m2
+m_div = m1/m2
+print("m1 = ",m1)
+print("m2 = ",m2)
+print("m1+m2 = ",m_sum)
+print("m1-m2 = ",m_diff)
+print("m1*m2 = ",m_prod)
+print("m1/m2 = ",m_div)
+print("")
 
-print("a =", a, "b =", b)
-
-print("Addition (a + b):", a + b)
-print("Subtraction (a - b):", a - b)
-print("Multiplication (a * b):", a * b)
-print("Division (a / b):", a / b)
-
-
-# =====================================
-# 2. VECTOR OPERATIONS (1D ARRAY)
-# =====================================
-print("\n===== VECTOR OPERATIONS =====")
-
-v1 = np.array([1, 2, 3])
-v2 = np.array([4, 5, 6])
-
-print("Vector v1:", v1)
-print("Vector v2:", v2)
-
-print("Addition (v1 + v2):", v1 + v2)
-print("Subtraction (v1 - v2):", v1 - v2)
-print("Multiplication (v1 * v2):", v1 * v2) 
-print("Dot Product:", np.dot(v1, v2))
-
-# Import NumPy library
-import numpy as np
-
-# =====================================
-# 1. SCALAR OPERATIONS
-# =====================================
-print("===== SCALAR OPERATIONS =====")
-
-# Scalars are just normal numbers
-a = 10
-b = 5
-
-print("a =", a, "b =", b)
-
-print("Addition (a + b):", a + b)
-print("Subtraction (a - b):", a - b)
-print("Multiplication (a * b):", a * b)
-print("Division (a / b):", a / b)
-
-
-# =====================================
-# 2. VECTOR OPERATIONS (1D ARRAY)
-# =====================================
-print("\n===== VECTOR OPERATIONS =====")
-
-# Create vectors using NumPy
-v1 = np.array([1, 2, 3])
-v2 = np.array([4, 5, 6])
-
-print("Vector v1:", v1)
-print("Vector v2:", v2)
-
-# Arithmetic operations
-print("Addition (v1 + v2):", v1 + v2)
-print("Subtraction (v1 - v2):", v1 - v2)
-print("Multiplication (v1 * v2):", v1 * v2)  # element-wise
-
-# Dot product
-print("Dot Product:", np.dot(v1, v2))
-
-
-# =====================================
-# 3. MATRIX OPERATIONS (2D ARRAY)
-# =====================================
-print("\n===== MATRIX OPERATIONS =====")
-
-# Create matrices
-m1 = np.array([[1, 2],
-               [3, 4]])
-
-m2 = np.array([[5, 6],
-               [7, 8]])
-
-print("Matrix m1:\n", m1)
-print("Matrix m2:\n", m2)
-
-# Arithmetic operations
-print("Addition (m1 + m2):\n", m1 + m2)
-print("Subtraction (m1 - m2):\n", m1 - m2)
-
-# Element-wise multiplication
-print("Element-wise Multiplication (m1 * m2):\n", m1 * m2)
-
-# Matrix multiplication
-print("Matrix Multiplication (np.dot):\n", np.dot(m1, m2))
-
-
-# =====================================
-# 4. TENSOR OPERATIONS (3D ARRAY)
-# =====================================
-print("\n===== TENSOR OPERATIONS =====")
-
-# Create 3D arrays (tensors)
-t1 = np.array([
-    [[1, 2], [3, 4]],
-    [[5, 6], [7, 8]]
-])
-
-t2 = np.array([
-    [[1, 1], [1, 1]],
-    [[2, 2], [2, 2]]
-])
-
-print("Tensor t1:\n", t1)
-print("Tensor t2:\n", t2)
-
-# Arithmetic operations
-print("Addition (t1 + t2):\n", t1 + t2)
-print("Subtraction (t1 - t2):\n", t1 - t2)
-print("Multiplication (t1 * t2):\n", t1 * t2)
+print("TENSOR")
+t1 = np.array([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]])
+t2 = np.array([[[12,11,10],[9,8,7]],[[6,5,4],[3,2,1]]])
+t_sum = t1+t2
+t_diff = t1-t2
+t_prod = t1*t2
+t_div = t1/t2
+print("t1 = ",t1)
+print("t2 = ",t2)
+print("t1+t2 = ",t_sum)
+print("t1-t2 = ",t_diff)
+print("t1*t2 = ",t_prod)
+print("t1/t2 = ",t_div)
+print("")
