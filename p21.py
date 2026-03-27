@@ -1,18 +1,13 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pandas as pd
 
-# Step 1: Load dataset
-# This loads a built-in dataset called "iris"
-data = sns.load_dataset("iris")
+df = sns.load_dataset('tips')
 
-# Step 2: Create Facet Grid
-# 'col="species"' means create separate plots for each category (species)
-g = sns.FacetGrid(data, col="species")
+g = sns.FacetGrid(df, col='day')
 
-# Step 3: Create scatter plot
-# This shows relationship between two numerical columns
-# X-axis = sepal_length, Y-axis = sepal_width
-g.map(plt.scatter, "sepal_length", "sepal_width")
+g.map(plt.scatter, 'total_bill', 'tip')
 
-# Step 4: Display the plots
+g.add_legend()
+
 plt.show()
