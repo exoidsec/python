@@ -1,29 +1,17 @@
-# Load a dataset into pandas and use seaborn to plot a histogram showing the distribution column. Customize the bin size, color and add titles and labels.
-import pandas as pd          # used for handling data (tables)
-import seaborn as sns       # used for plotting graphs
-import matplotlib.pyplot as plt   # used to display graphs
-
-# Load dataset (restaurant tips data)
-df = sns.load_dataset("tips")
-
-# Print dataset
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df = sns.get_dataset_names()
 print(df)
 
-# Create figure size (makes graph bigger)
+df = sns.load_dataset('tips')
+print(df)
+
 plt.figure(figsize=(10, 6))
+sns.histplot(data=df, x='total_bill', bins=30, color = 'Yellow', kde=True)
 
-# Create histogram
-# x = column to plot
-# bins = number of bars
-# color = bar color
-# kde = smooth curve line
-sns.histplot(data=df, x="total_bill", bins=20, color="skyblue", kde=True)
 
-# Label X-axis
-plt.xlabel("Total Bill Amount ($)")
-
-# Label Y-axis
-plt.ylabel("Frequency")
-
-# Show graph
+plt.title('Distribution of Total Bill')
+plt.xlabel('Total Bill ($)')
+plt.ylabel('Frequency')
 plt.show()
