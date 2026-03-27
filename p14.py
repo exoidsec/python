@@ -1,16 +1,18 @@
-# 14] Load a dataset into pandas and create a pairplot using seaborn to visualize pairwise relationship between all numerical columns. add hue to distinguish different categories.
-import pandas as pd          # for handling dataset
-import seaborn as sns       # for visualization
+import seaborn as sns
+import pandas as pd
 import matplotlib.pyplot as plt
 
-# Step 1: Load dataset
-# Using built-in iris dataset
-df = sns.load_dataset("iris")
+df = sns.load_dataset('tips')
 
-# Step 2: Create pairplot
-# pairplot shows relationship between all numerical columns
-# hue="species" adds color based on category
-sns.pairplot(df, hue="species")
+sns.pairplot(
+    df,
+    vars=['total_bill', 'tip', 'size'],
+    hue='sex',
+    palette='husl'
+)
 
-# Step 3: Show plot
+plt.suptitle(
+    'Pairwise Relationships in Tips Dataset by Gender',
+    y=1.02
+)
 plt.show()
